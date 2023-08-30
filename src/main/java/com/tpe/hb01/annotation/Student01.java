@@ -2,16 +2,17 @@ package com.tpe.hb01.annotation;
 
 import javax.persistence.*;
 
-@Entity// Bu classtan olusturdugumuz objelerin database'de kalici hale getirmek icin class ile ayni isimde bir tablo olusturur.
-@Table(name= "t_student01")//Eger tabloya custom bir isim vermek istersek; tabloya custom bir isim vermemizi saglar
-// HQL: Student01
-//SQL: t_student01
+@Entity// Bu classtan olusturdugumuz objelerin database'de kalici hale getirmek icin class ismi ile ayni isimde bir tablo olusturur.
+@Table(name= "t_student01")//Eger tabloya custom bir isim vermek istersek; tabloya custom bir isim vermemizi saglar.
+// HQL: Student01 -> java kodlarindan anlar bu sebepten sorgularda class ismini kullaniriz
+//SQL: t_student01  -> native sql sorgularini kullandigi icin burda ise osrgularimizda database'deki tablo ve field isimlerini kullanmaliyiz.
 public class Student01 {
 
 
-    @Id // @Entity kullanildiginda kullanimi zorunludur Primery Key ihtiyac oldugunda @Id annatattionu kullanilmalidir.
+    @Id // @Entity kullanildiginda kullanimi zorunludur. Primery Key ihtiyac oldugunda @Id annatattionu kullanilmalidir.
     @Column(name = "std_id")
     private int id;
+
 
     @Column(name = "std_name", length =100, nullable = false, unique=true)
     private String name;
