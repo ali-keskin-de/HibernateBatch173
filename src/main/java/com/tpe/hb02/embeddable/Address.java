@@ -3,7 +3,7 @@ package com.tpe.hb02.embeddable;
 import javax.persistence.Embeddable;
 
 
-@Embeddable // bu classa karsilik bir tablo olusturma, baska bir tabloya bu classtaki fiellar baksa bir tabloya eklenebilir
+@Embeddable // bu classa karsilik bir tablo olusturma, baska bir tabloya bu classtaki fieldlar baksa bir tabloya eklenebilir
 public class Address {
 
     private String street;

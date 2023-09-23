@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity// Bu classtan olusturdugumuz objelerin database'de kalici hale getirmek icin class ismi ile ayni isimde bir tablo olusturur.
 @Table(name= "t_student01")//Eger tabloya custom bir isim vermek istersek; tabloya custom bir isim vermemizi saglar.
-// HQL: Student01 -> java kodlarindan anlar bu sebepten sorgularda class ismini kullaniriz
+// HQL: Student01 -> java kodlarindan anlar bu sebepten SQL sorgularinda class ismini kullaniriz
 //SQL: t_student01  -> native sql sorgularini kullandigi icin burda ise osrgularimizda database'deki tablo ve field isimlerini kullanmaliyiz.
 public class Student01 {
 

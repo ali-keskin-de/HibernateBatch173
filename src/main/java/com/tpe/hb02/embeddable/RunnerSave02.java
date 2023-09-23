@@ -33,6 +33,7 @@ public class RunnerSave02 {
         session.persist(student2);
 
 
+
           tx.commit();
           session.close();
           sf.close();

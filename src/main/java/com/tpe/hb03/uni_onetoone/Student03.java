@@ -18,6 +18,9 @@ public class Student03 {
 
     private int grade;
 
+    // Eger parammetreli bir constructor kullaniliyorsa mutlaka kendimiz bir parametresiz constructor
+    //create etmeliyiz cünkü default'taki paramaetresiz cons. parametreli const. tarafindan ezilir.
+    // ancak getter, setter yaptigimiz field'lara ulasabilmek icin parametresiz con. ihtiyacimiz oldugundan create ederiz
     public Student03() {
     }
 

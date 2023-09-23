@@ -12,7 +12,7 @@ public class RunnerFetch01 {
     public static void main(String[] args) {
 
 
-        // configure()--> configurasyon dosyamizda defaalt isimlendirmeyi kullandigimizdan (hibernate.cfg.xml) method'a bu ismi yazmak zorunda degiliz.
+        // configure()--> configurasyon dosyamizda default isimlendirmeyi kullandigimizdan (hibernate.cfg.xml) method'a bu ismi yazmak zorunda degiliz.
         //Eger resource'da ki xml configuration dosyasina baska bir isim vermis olsaydik yazmak zorunda olurduk.
         Configuration configuration = new Configuration().configure().addAnnotatedClass(Student01.class);
         SessionFactory sf =configuration.buildSessionFactory();
@@ -20,6 +20,7 @@ public class RunnerFetch01 {
           Transaction tx = session.beginTransaction();
 
           // Database'den data cekmek icin 3 tane yol var.
+        //1.yol session'in get() method'u ile bunu gereceklestirebiliriz.
 
        Student01 student1 = session.get(Student01.class, 1001);// select * from t_student01 where std_id =1001;
        Student01 student2 = session.get(Student01.class, 1002);// select * from t_student01 where std_id =1002;
@@ -31,6 +32,7 @@ public class RunnerFetch01 {
         System.out.println(student3);
 
         // 2.yol : SQL sorgusu ile database'den datqlarimizi getirebiliriz.
+        System.out.println("-----------------------------SQL Query---------------------------------");
 
         String sql = "SELECT * FROM t_student01";
         List<Object[]> students=session.createSQLQuery(sql).getResultList();
@@ -45,6 +47,7 @@ public class RunnerFetch01 {
         // 3.yol: Hibernate Query Language: java bilesenlerini kullanarak sorgu yazarak.
         // HQL: Student01
        //SQL: t_student01
+        System.out.println("-----------------------------hQL Query---------------------------------");
 
         String hql = "FROM Student01";
         List<Student01> resultList=session.createQuery(hql,Student01.class).getResultList();

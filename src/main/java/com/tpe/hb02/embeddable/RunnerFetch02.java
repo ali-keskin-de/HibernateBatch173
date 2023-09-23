@@ -17,8 +17,8 @@ public class RunnerFetch02 {
         Transaction tx =session.beginTransaction();
 
         //id:1001 olan studentı görelim.
-        Student02 student=session.get(Student02.class,1001);
-        System.out.println(student);
+       Student02 student=session.get(Student02.class,1001);
+     //  System.out.println(student);
         System.out.println(student.getAddress());
 
 

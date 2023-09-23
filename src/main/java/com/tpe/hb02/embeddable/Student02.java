@@ -15,9 +15,10 @@ public class Student02 {
 
     private  int grade;
 
-    @Embedded // kullanimi opsional, gömülü demektir.
+    @Embedded // kullanimi opsional, gömülü demektir. zaten biz bu annotation'u Address classinda class levelde kullanmis olduk.
     private Address address;
     // street, city, country, zipcode
+    // Bu entity classinin db tarafinda olusacak tabloda yukardaki street, city, country, zipcode  columlari olacak.
 
 
 

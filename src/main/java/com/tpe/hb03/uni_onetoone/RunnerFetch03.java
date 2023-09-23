@@ -20,7 +20,7 @@ public class RunnerFetch03 {
         //id:1002 olan studentı görelim
         Student03 student=session.get(Student03.class,1002);
         System.out.println(student);
-        //student.getDiary();?????
+        //student.getDiary();????? burada ögrenci üzerinden günlük bilgilerine ulasamiyoruz. neden???
 
 
         System.out.println("----------------------------------------");
@@ -31,7 +31,7 @@ public class RunnerFetch03 {
 
         //id:11 olan diaryinin sahibi olan studentı görelim
         Diary diary2=session.get(Diary.class,11);
-        System.out.println("id:11 olan diarynin sahibi: "+diary2.getStudent());
+        System.out.println("id:11 olan diarynin sahibi: "+diary2.getStudent()); // günlük üzerinden ögrenciye ulasirken ögrenciden günlüge ulasamiyoruz
 
         //diaryden studenta ulaşabiliyoruz.
         //studentdan diarye ulaşamıyoruz.???
