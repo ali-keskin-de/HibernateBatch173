@@ -18,6 +18,16 @@ public class Student05 {// Many olan taraf
 
     private LocalDateTime creatOn;
 
+    @PrePersist // bu class objesi persist edilmeden yani kalici hale getirilmeden  (DB'e eklenmeden) önce bu method cagirilir.
+    // böylelikle kayit zamanini almis oluruz.
+    public void prePersist(){
+        this.creatOn =LocalDateTime.now();
+    }
+
+    @ManyToOne// Student tablosunda FK olusturur, default isimi: university_id, custom bir isim olusturmak isterseniz @JoinColumn(name = "uni_id")
+    @JoinColumn(name = "uni_id")
+    private University university;//one
+
     @Override
     public String toString() {
         return "Student05{" +
@@ -67,9 +77,11 @@ public class Student05 {// Many olan taraf
         return creatOn;
     }
 
-    public void setCreatOn(LocalDateTime creatOn) {
+/*    public void setCreatOn(LocalDateTime creatOn) {
         this.creatOn = creatOn;
     }
+    // Bu method set islemleri manuel olarak gerceklesmeyeceginden setter method'una ihtiyac yoktur.
+ */
 
     public University getUniversity() {
         return university;
@@ -79,13 +91,6 @@ public class Student05 {// Many olan taraf
         this.university = university;
     }
 
-    @PrePersist // bu class objesi persist edilmeden (DB'e eklenmeden) önce bu method cagirilir.
-    public void prePersist(){
-        this.creatOn =LocalDateTime.now();
-    }
 
-    @ManyToOne// Student tablosunda FK olusturur, default isimi: university_id
-    @JoinColumn(name = "uni_id")
-    private University university;//one
 
 }

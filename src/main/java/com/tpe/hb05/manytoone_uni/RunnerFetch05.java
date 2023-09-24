@@ -32,7 +32,7 @@ public class RunnerFetch05 {
  //      University university= session.get(University.class,11);
  //      university.getStudent()
 
-        //hql
+        //hql SELECT yazmaya gerek kalmiyor. Eger yazmak isteerseniz asagidaki gibi yazabilirsiniz.
         String hql = "SELECT s FROM Student05 s Where s.university.id=11";
         List<Student05> studentList =session.createQuery(hql,Student05.class).getResultList();
         studentList.forEach(System.out::println);

@@ -11,11 +11,14 @@ public class RunnerSave05 {
         University university1=new University(11,"Hibernate University");
         University university2=new University(22,"JPA University");
 
+        //Tek yönlü iliski (uni-directional) kurdugumuzdan dolayi sadece student tarafinda
+        // yani FK in olacagi tarafta field tanimladi burda universitöt tanimlanmis oldu.
         Student05 student1=new Student05(1001,"Ayşe",97,university1);
         Student05 student2=new Student05(1002,"Ömer",97,university1);
         Student05 student3=new Student05(1003,"Mustafa",99,university1);
         Student05 student4=new Student05(1004,"Zeynep",93,university2);
         Student05 student5=new Student05(1005,"Kübra",98,university2);
+        // universitesi olmayan bir ögrenci set etmek istersek parametresiz constructor kullilmali.
         Student05 student6=new Student05();
         student6.setId(1006);
         student6.setName("Jack Sparrow");

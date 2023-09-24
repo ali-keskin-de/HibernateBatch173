@@ -21,7 +21,13 @@ public class RunnerFetch04 {
         Session session =sf.openSession();
         Transaction tx =session.beginTransaction();
 
-         Student04 student=session.get(Student04.class,1001);
+        // id:1001 olan student
+         Student04 student= session.get(Student04.class, 1001);
+        System.out.println("Student1'in diary'si : " + student.getDiary());
+
+        // id: 11 olan diary
+        Diary04 diary = session.get(Diary04.class, 11);
+        System.out.printf("Id'si 11 olan diary'nin sahibi " + diary.getStudent());
 
         //studentdan diarye ulaşabiliyoruz...
 
@@ -50,6 +56,8 @@ public class RunnerFetch04 {
         String hql4="SELECT s.name, d.name FROM Student04 s FULL JOIN Diary04 d ON s.id=d.student";//d.student.id
         List<Object[]> resultList4=session.createQuery(hql4).getResultList();
         resultList4.forEach(t-> System.out.println(Arrays.toString(t)));
+
+
 
         tx.commit();
         session.close();

@@ -18,12 +18,14 @@ public class Student04 {
 
     }
     // Dairy classinda iliskinin kuruldugu field ismi ile mabbedBy atanan isim ayni olmali
-    @OneToOne(mappedBy = "student")//sadece diary tablosunda FK olusturulur. mapped by kullanilmazsa iki tabloda Fk olur.
-                                  // dairy tablosunda student olusturuldugunda bu tarafta diary olusturulmayacak
+    //sadece diary tablosunda FK olusturulur. mapped by kullanilmazsa iki tabloda Fk olur.
+    // dairy tablosunda student olusturuldugunda bu tarafta diary olusturulmayacak
+    @OneToOne(mappedBy = "student")
     private Diary04 diary;
 
 
-        //getter-setter
+//getter-setter
+
 
     public int getId() {
         return id;
@@ -47,6 +49,10 @@ public class Student04 {
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    public Diary04 getDiary() {
+        return diary;
     }
 
     @Override

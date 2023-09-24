@@ -14,6 +14,7 @@ public class RunnerSave04 {
         student1.setName("Benna");
         student1.setGrade(100);
 
+
         Student04 student2 = new Student04();
         student2.setId(1002);
         student2.setName("Enes");
@@ -23,6 +24,7 @@ public class RunnerSave04 {
         student3.setId(1003);
         student3.setName("Merve");
         student3.setGrade(98);
+
 
         Diary04 diary1=new Diary04();
         diary1.setId(11);
@@ -37,6 +39,7 @@ public class RunnerSave04 {
         Diary04 diary3=new Diary04();
         diary3.setId(33);
         diary3.setName("C Diary");
+       // diary3.setStudent(student3);
 
 
 
@@ -57,6 +60,9 @@ session.persist(student3);
 session.persist(diary1);
 session.persist(diary2);
 session.persist(diary3);
+
+        System.out.println("Student1'in diary'si : " + student1.getDiary());
+        System.out.println("1.diary'nin sahibi : " + diary1.getStudent());
 
 
         tx.commit();
