@@ -12,7 +12,7 @@
 
         <property name = "hibernate.connection.driver_class">org.postgresql.Driver</property>
 
-        <property name="connection.url">jdbc:postgresql://localhost:5432/hibernate_db</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5434/hibernate_db</property>
 
         <property name="connection.username">dev_user</property>
 
@@ -30,8 +30,13 @@
 
         <property name="hbm2ddl.auto">update</property>
 
+        <!-- Bizim yerimize hibernate sql sorgulari yapmaktadir yaptigi sorgulari bizimde görebilmemiz icin
+         show_sql li true cekmeliyiz.
+         -->
         <property name="show_sql">true</property>
 
+        <!-- bize sql sorgularini gösterirken düzgün bir sekilde gästermesi icin format_sql lide true yapariz
+         -->
         <property name="format_sql">true</property>
 
 

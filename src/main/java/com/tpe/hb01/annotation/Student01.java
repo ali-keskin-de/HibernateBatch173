@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Student01 {
 
 
-    @Id // @Entity kullanildiginda kullanimi zorunludur. Primery Key ihtiyac oldugunda @Id annatattionu kullanilmalidir.
+    @Id // @Entity kullanildiginda kullanimi zorunludur. Primery Key ihtiyac oldugundan @Id annatattionu kullanilmalidir.
     @Column(name = "std_id")
     private int id;
 
