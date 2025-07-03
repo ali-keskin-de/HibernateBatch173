@@ -18,8 +18,9 @@ public class Student05 {// Many olan taraf
 
     private LocalDateTime creatOn;
 
-    @PrePersist // bu class objesi persist edilmeden yani kalici hale getirilmeden  (DB'e eklenmeden) önce bu method cagirilir.
-    // böylelikle kayit zamanini almis oluruz.
+    // bu class objesi persist edilmeden yani kalici hale getirilmeden  (DB'e eklenmeden) önce bu method cagirilir.
+    // böylelikle bu methodun icinde bulunduğu creatOn field’ti Bu class’ta create edilen object DB kayit olmadan hem önce bu method sayesinde seslenmiş olur.
+    @PrePersist
     public void prePersist(){
         this.creatOn =LocalDateTime.now();
     }

@@ -14,6 +14,7 @@ public class RunnerSave02 {
          Session session = sf.openSession();
           Transaction tx = session.beginTransaction();
 
+
        Address address1 = new Address("Apple St.", "Newyork", "Us", "54321");
        Address address2 = new Address("Orange St.", "Newyork", "Us", "654321");
 
@@ -32,8 +33,8 @@ public class RunnerSave02 {
         session.persist(student1);
         session.persist(student2);
 
-
-
+        //session.save(student1); save methodu Hibernate'in 5.2 sürümü ile Deplecate oldu.
+        // JPA protokolu ile beraber JPA ye uyum saglamak adina kendi methodu save() yerine artik hibernate'te persist() methodunu kullanmaktadir.
           tx.commit();
           session.close();
           sf.close();

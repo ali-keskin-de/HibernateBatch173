@@ -1,0 +1,1 @@
+ALTER TABLE t_student01 DROP COLUMN std_email;

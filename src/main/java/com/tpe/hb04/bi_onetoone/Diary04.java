@@ -14,7 +14,7 @@ public class Diary04 { // owner of relation, iliski sahibi class
     private String name;
 
 
-    @JoinColumn(name = "std_id", unique = true)// opsionale
+    @JoinColumn(name = "std_id", unique = true)// opsionale dairy tablosunda olusacak FK sütunu default'ta  "student_id" ismini alir eger farkli bir isim vermek istiyorsak o zaman @JoinColumn anno. kullanilir.
     @OneToOne // Student tablosunun pk sütununu kullanaarak fk sütunu olusturur. Buraya bir sütun ekler defaulta: student_id olur. burdaki student field ismine _id ekliyor
     private Student04 student;
 

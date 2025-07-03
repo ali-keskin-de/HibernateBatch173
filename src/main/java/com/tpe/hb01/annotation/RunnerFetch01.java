@@ -1,5 +1,6 @@
 package com.tpe.hb01.annotation;
 
+import com.tpe.hb05.manytoone_uni.Student05;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -32,11 +33,10 @@ public class RunnerFetch01 {
         System.out.println(student3);
 
         // 2.yol : SQL sorgusu ile database'den datqlarimizi getirebiliriz.
-        System.out.println("-----------------------------SQL Query---------------------------------");
-
         String sql = "SELECT * FROM t_student01";
         List<Object[]> students=session.createSQLQuery(sql).getResultList();
 
+        System.out.println("-----------------------------SQL Query---------------------------------");
         for (Object[] student: students){
               {
                   System.out.println(Arrays.toString(student));
@@ -44,14 +44,14 @@ public class RunnerFetch01 {
 
         }
 
-        // 3.yol: Hibernate Query Language: java bilesenlerini kullanarak sorgu yazarak.
+        // 3.yol: Hibernate Query Language: java bilesenlerini kullanarak sorgu yazabiliriz.
+        // HQL: Student01 -> java kodlarindan anlar bu sebepten HQL sorgularinda class ismini kullaniriz
         // HQL: Student01
        //SQL: t_student01
-        System.out.println("-----------------------------hQL Query---------------------------------");
-
         String hql = "FROM Student01";
         List<Student01> resultList=session.createQuery(hql,Student01.class).getResultList();
 
+        System.out.println("-----------------------------hQL Query---------------------------------");
         for (Student01 student:resultList
              ) {
             System.out.println(student);
@@ -61,22 +61,29 @@ public class RunnerFetch01 {
         // ismi Max olan kaydi görüntüleyelim.
         //SQL
         String sql2 = "SELECT * FROM t_student01 WHERE std_name='Max Book'";
-        Object [] studentMax = (Object[]) session.createSQLQuery(sql2).uniqueResult();
+        Object [] studentMax = (Object[]) session.createSQLQuery(sql2).uniqueResult();//
         System.out.println(Arrays.toString(studentMax));
 
 
-        // HQl
+        // HQL
         String hql2 = " FROM Student01 WHERE name= 'Max Book'";
         Student01 studentMaxHql =session.createQuery(hql2, Student01.class).uniqueResult();
         System.out.println(studentMaxHql);
 
 
-        //  hql sorgusunda ALIAS kullanalim
-        String hql3 = "SELECT id, name FROM Student01 s WHERE s.name= 'Ali Keskin'";
+        //Not: HQL sorgusunda ALIAS kullanalim. Takma isim class ve field larimiza takma isim koymak icin kullaniriz. örn. "Student01 s"
+        //HQL sorgusunda ALIAS kullanarak Ali Keskin adindaki objenin id ve name bilgilerini getirelim.
+        String hql3 = "SELECT s.id, s.name FROM Student01 s WHERE s.name= 'Ali Keskin'";
        Object [] studentAli = (Object[]) session.createQuery(hql3).uniqueResult(); // geriye [id, name] gelecek sadece.
+
         System.out.println(Arrays.toString(studentAli));
 
+        String hql4 = "FROM Student01 s WHERE s.name LIKE '%Max%'";
+        List<Student01> persons = session.createQuery(hql4).getResultList();
 
+       for (Student01 student01 : persons ){
+           System.out.println(student01);
+        }
           tx.commit();
           session.close();
           sf.close();

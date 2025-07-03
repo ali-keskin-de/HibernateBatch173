@@ -13,7 +13,11 @@ public class Diary {//owner of relation,ilişki sahibi
 
     private String name;
 
-    @OneToOne//student tablosunun PK sütununu kullanrak Diary tablosunda FK sütunu oluşturur. Default:student_id
+    //student tablosunun PK sütununu kullanrak Diary tablosunda FK sütunu oluşturur.
+    // Default:student_id bu default isim nasil olusur;
+    // burda olusturdugumuz student field i ile Student03 classindaki PK field nin isimlerini alir ve aralarina bir underskor kor.
+    // Eger default isim disinda bir isim kullanilmasini istiyorsak o zamanda @JoinColumn ann. kullanilir.
+    @OneToOne
     @JoinColumn(name = "std_id",unique = true)//opsiyonel
     private Student03 student;
 

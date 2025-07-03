@@ -19,7 +19,8 @@ public class Student04 {
     }
     // Dairy classinda iliskinin kuruldugu field ismi ile mabbedBy atanan isim ayni olmali
     //sadece diary tablosunda FK olusturulur. mapped by kullanilmazsa iki tabloda Fk olur.
-    // dairy tablosunda student olusturuldugunda bu tarafta diary olusturulmayacak
+    // dairy tablosunda student olusturuldugunda bu tarafta diaryki dairy ile maplenecek
+    // mappedBy = "student" burdaki student dairy classindaki field ismi ile ayni olmali.
     @OneToOne(mappedBy = "student")
     private Diary04 diary;
 

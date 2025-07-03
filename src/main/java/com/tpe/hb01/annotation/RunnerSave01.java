@@ -9,11 +9,11 @@ public class RunnerSave01 {
 
 
     public static void main(String[] args) {
-        Student01 student01 = new Student01();
-        student01.setName("Ali Keskin");
-        student01.setId(1001);
-        student01.setGrade(98);
-        student01.setAge(25);
+        Student01 student1 = new Student01();
+        student1.setName("Ali Keskin");
+        student1.setId(1001);
+        student1.setGrade(98);
+        student1.setAge(25);
 
         Student01 student2 = new Student01();
         student2.setId(1002);
@@ -34,6 +34,10 @@ public class RunnerSave01 {
         student4.setGrade(70);
 
         Student01 student5 = new Student01();
+        student4.setId(1005);
+        student4.setName("MEHMET Book");
+        student4.setAge(29);
+        student4.setGrade(70);
 
         // hibernate.cfg.xml dosyamizdaki bilgilere ve Student01 classindaki annotation'lara göre configuration yapilir.
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Student01.class);
@@ -42,8 +46,10 @@ public class RunnerSave01 {
         // Hibernate SessionFactory interface ile DB ile ilgili islemleri yönetmemizi saglayan interfacetir.
         // tüm uygulamada sadece bir kez sf olusturulur. Fakat farkli islemler icin birden fazla session acilabilir.
        SessionFactory sf= configuration.buildSessionFactory(); // Database ile ilgili islemlerin yönetimini saglar.
+
         Session session = sf.openSession();// Database'de CRUD operasyanlari icin ve sorgulari calistirmak icin methodlar icerir.
-        // hibernate auto-commit: false tur bu sebepten commit islemlerini bir transaction icerisinde yapmaliyiz.
+
+        // hibernate auto-commit: false Hibernate'te default'ta false'tir bu sebepten commit islemlerini bir transaction icerisinde yapmaliyiz.
         // hibernate auto-commit: false oldugundan transaction'in baslatilmasi gerekmektedir.
         Transaction tx = session.beginTransaction(); // DB'de bir transaction baslatir.
 
