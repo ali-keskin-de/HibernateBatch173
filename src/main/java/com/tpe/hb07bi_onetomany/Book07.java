@@ -5,7 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Book07 {//many:owner relation
+public class Book07 {//many: owner of relation
 
     @Id
     private int id;
@@ -59,4 +59,5 @@ public class Book07 {//many:owner relation
                 ", name='" + name + '\'' +
                 '}';
     }
+    // Burada toString method'duna student field'ti eklemiyoruz eger eklersek sonsuz döngüye girer.
 }

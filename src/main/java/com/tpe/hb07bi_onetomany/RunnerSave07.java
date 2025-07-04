@@ -19,6 +19,7 @@ public class RunnerSave07 {
         Student07 student3=new Student07(1003,"Faruk",79);
 
         //student1.getBookList().add(book1);
+        // En az iliski sahibi (book) tarafinda set yapilmali.
         //her iki tarafından da set yapılabilir;
         // ancak kesinlikle owner of relation tarafında set yapmak gerekli..
         book1.setStudent(student1);

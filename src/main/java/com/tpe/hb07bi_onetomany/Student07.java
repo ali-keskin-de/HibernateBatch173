@@ -20,16 +20,16 @@ public class Student07 {//ONE
     // mappedBy = "student" diyerek Book07 tablosunda Student göre set etdemektir.
     // böyleleikle sadece book tablosunda fk sütunu olusmaktadir.
 
-    //  @OneToMany(mappedBy = "student",cascade = CascadeType.REMOVE)
+    //  @OneToMany(mappedBy = "student",cascade = CascadeType.REMOVE) burda ve sagaidaki yapi ayni islevi görmektedir. Silme isleminde iliskili bir object varsa önce git onu sil sonra object sil demektir.
     @OneToMany(mappedBy = "student",orphanRemoval = true)
     private List<Book07> bookList=new ArrayList<>();//MANY
+
     //orphanRemoval default false'tur ancak true cekildiginde iliskili obje'yi sillersen cocuklarinida sil demek;
     // yani ögrenciyi sillersen kitaplarida sil--> CascadeType.REMOVE  ile ayni isi yapar ve bu ancak hibernate ait tir.
 
     //mappedBy = "student": Bu özellik, ilişkiyi "Book07" varlığında "Öğrenci" varlığına geri bağlamak için kullanılan alanın
     // veya özelliğin adını belirtir. Başka bir deyişle, "Book07" varlığındaki "student" alanı,
     // her kitabın hangi öğrenciye ait olduğunu belirlemek için kullanılır.
-
 
     public Student07() {
     }

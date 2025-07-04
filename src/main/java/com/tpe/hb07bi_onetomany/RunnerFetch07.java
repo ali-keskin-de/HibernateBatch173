@@ -20,11 +20,13 @@ public class RunnerFetch07 {
         Transaction tx =session.beginTransaction();
 
         Student07 student=session.get(Student07.class,1001);
-        System.out.println(student.getBookList());
+        System.out.println( "id 1001 olan ögrencinin kitaplari" + student.getBookList());
 
         System.out.println("-------------------------------------------");
         Book07 book=session.get(Book07.class,101);
-        System.out.println(book.getStudent());
+        System.out.println("id 101 olan kitabin ögrencileri " + book.getStudent());
+
+/*
 
 
         //PRACTICE
@@ -48,6 +50,8 @@ public class RunnerFetch07 {
         for (Student07 student07: resultList4) {
             System.out.println(student07);
         }
+
+ */
 
         tx.commit();
         session.close();
